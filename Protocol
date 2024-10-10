@@ -1,10 +1,14 @@
-##Part I Data preparation
-
+## Part 0: Create Project Folders and Clone Git Repository
 cd $WORK
-mkdir  course_project
+mkdir course_project
 cd course_project
 git clone https://github.com/sivanr92/Class_project.git 
 
 #for each part, create a folder and named with “part1”,  “part2”, “part3”....
 mkdir part1
-mkdir part2 
+mkdir part2
+
+##Part 1: Data preparation
+cd part1
+wget http://www.cazy.org/IMG/cazy_data/GH31.txt
+
