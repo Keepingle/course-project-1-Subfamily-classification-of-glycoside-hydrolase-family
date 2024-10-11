@@ -9,9 +9,49 @@ mkdir part1
 mkdir part2
 
 ##Part 1: Data preparation
+## Copy the link and use the wget to download it on swan
+## Use GH31.txt to get a list of genbank ids of GH31 family
+## Remove the redundant IDs
+## Get unique ids in GH31
+
 cd part1
-wget http://www.cazy.org/IMG/cazy_data/GH31.txt   # Copy the link and use the wget to download it on swan
-cut -f 4 GH31.txt > list_ids.txt  # Copy the link and use the wget to download it on swan
-cat list_ids.txt | sort |uniq > uniq_list_ids.txt  # Remove the redundant IDs
+wget http://www.cazy.org/IMG/cazy_data/GH31.txt   
+cut -f 4 GH31.txt > list_ids.txt  
+cat list_ids.txt | sort |uniq > uniq_list_ids.txt 
 wc -l uniq_list_ids.txt  # unique ids in GH31
+
+## install the EDirect software, more information https://www.ncbi.nlm.nih.gov/books/NBK179288/
+sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)" 
+
+export PATH=${HOME}/edirect:${PATH}
+
+# Answer "y" and press the Return key
+
+export NCBI_API_KEY= your_API_KEY
+
+## copy batch_download_protein_seqeunces.sh and run it (running time is about 30 min
+
+cp ../Class_project/batch_download_protein_seqeunces.sh .
+nano batch_download_protein_seqeunces.sh
+# Revise to change email address in batch_download_protein_seqeunces.sh
+
+bash batch_download_protein_seqeunces.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
