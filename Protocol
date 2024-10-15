@@ -38,6 +38,23 @@ nano batch_download_protein_seqeunces.sh
 bash batch_download_protein_seqeunces.sh
 
 
+##Part 2: Domain annotation
+
+## download annotation tools
+##Go to the website: https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/ download “dbCAN-fam-HMMs.txt” and “hmmscan-parser.sh”
+wget https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/dbCAN-fam-HMMs.txt
+wget https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/hmmscan-parser.sh
+
+##Use module load to activate hmmer on swan.
+
+ml hmmer/3.3
+hmmbuild -h  #To check if it works or not.
+
+hmmpress dbCAN-fam-HMMs.txt
+
+cp ../Class_project/hmmscan_run.slurm .
+nano hmmscan_run.slurm
+
 
 
 
