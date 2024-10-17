@@ -56,10 +56,12 @@ cp ../Class_project/hmmscan_run.slurm .
 nano hmmscan_run.slurm
 
 
+##Run the following commands to make the result readable 
+##xtract the final modules by filtering with E- Value <1e-15 and coverage cut off >0.35.
 
+sh hmmscan-parser.sh gh31_hmmscan.out.dm > gh31_hmmscan.out.dm.ps 
 
-
-
+cat gh31_hmmscan.out.dm.ps  | awk '$5<1e-15&&$10>0.35' > gh31_hmmscan.out.dm.ps .stringent
 
 
 
