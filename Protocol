@@ -30,8 +30,8 @@ export PATH=${HOME}/edirect:${PATH}
 
 # Answer "y" and press the Return key
 
-export NCBI_API_KEY= your_API_KEY
-
+export NCBI_API_KEY=your_API_KEY
+#EX: export NCBI_API_KEY=81e5ba4b75d9218a02c7502bb754ba229208
 ## copy batch_download_protein_seqeunces.sh and run it (running time is about 30 min
 
 cp ../Class_project/batch_download_protein_seqeunces.sh .
