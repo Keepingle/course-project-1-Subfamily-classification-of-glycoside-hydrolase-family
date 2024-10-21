@@ -17,7 +17,7 @@ mkdir part2
 cd part1
 wget http://www.cazy.org/IMG/cazy_data/GH31.txt   
 cut -f 4 GH31.txt | grep -w ncbi > list_ids.txt  
-cat list_ids.txt | sort |uniq > uniq_list_ids.txt 
+cat list_ids.txt | sort | uniq > uniq_list_ids.txt 
 wc -l uniq_list_ids.txt  # unique ids in GH31
 
 ## install the EDirect software, more information https://www.ncbi.nlm.nih.gov/books/NBK179288/
