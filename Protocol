@@ -6,7 +6,7 @@ git clone https://github.com/sivanr92/Class_project.git 
 
 # for each part, create a folder and named with “part1”,  “part2”, “part3”....
 mkdir part1
-
+________________________________________________________________________________
 ##Part 1: Data preparation
 ## Copy the link and use the wget to download it on swan
 ## Use GH31.txt to get a list of genbank ids of GH31 family
@@ -39,7 +39,7 @@ nano batch_download_protein_seqeunces.sh
 
 bash batch_download_protein_seqeunces.sh
 
-
+________________________________________________________________________________
 ##Part 2: Domain annotation
 #Create your part2 folder
 ## download annotation tools
@@ -60,6 +60,27 @@ hmmpress dbCAN-fam-HMMs.txt
 cp ../Class_project/hmmscan_run.slurm .
 nano hmmscan_run.slurm
 
+#Edit it using your own info.
+#Try smaller mem if the waiting time is too long.
+#Set error and output with the same path (in your part2 folder).
+#Add email to remind you when it start/stop.
+#Remember where you have your GH31 protein sequence files.
+
+#!/bin/bash
+#SBATCH --time=24:00:00          # Run time in hh:mm:ss
+#SBATCH --mem=100gb       # Maximum memory required per CPU (in megabytes)
+#SBATCH --job-name=hmmscan
+#SBATCH --error=/work/yinlab/yixing/course_project/part2/hmmscan.%J.err
+#SBATCH --output=/work/yinlab/yixing/course_project/part2/hmmscan.%J.out
+#SBATCH --partition=batch,guest
+#SBATCH --mail-user=yxing3@huskers.unl.edu
+#SBATCH --mail-type=ALL
+
+ml hmmer/3.3
+hmmscan --domtblout gh31_hmmscan.out.dm dbCAN-fam-HMMs.txt /work/yinlab/yixing/course_project/part1/cleaned_batch_protein_sequences.fasta > gh31_hmmscan.out
+
+##Run hmmscan_run.slurm using sbatch (it takes around 4 hours)
+sbatch hmmscan_run.slurm
 
 ##Run the following commands to make the result readable 
 ##xtract the final modules by filtering with E- Value <1e-15 and coverage cut off >0.35.
@@ -68,8 +89,14 @@ sh hmmscan-parser.sh gh31_hmmscan.out.dm > gh31_hmmscan.out.dm.ps 
 
 cat gh31_hmmscan.out.dm.ps  | awk '$5<1e-15&&$10>0.35' > gh31_hmmscan.out.dm.ps .stringent
 
-
-
+________________________________________________________________________________
+##Part 3: Domain extraction
+ml biopython
+cp ../Class_project/filter_modules_26sep2023.py .
+cp ../part1/batch_protein_sequences.fasta .
+cp ../part2/gh31_hmmscan.out.dm.ps.stringent .
+change the batch_protein_sequences.fasta
+python filter_modules_26sep2023.py > extracted_domains.faa
 
 
 
