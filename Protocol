@@ -6,7 +6,6 @@ git clone https://github.com/sivanr92/Class_project.git 
 
 # for each part, create a folder and named with “part1”,  “part2”, “part3”....
 mkdir part1
-mkdir part2
 
 ##Part 1: Data preparation
 ## Copy the link and use the wget to download it on swan
@@ -42,9 +41,12 @@ bash batch_download_protein_seqeunces.sh
 
 
 ##Part 2: Domain annotation
-
+#Create your part2 folder
 ## download annotation tools
 ##Go to the website: https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/ download “dbCAN-fam-HMMs.txt” and “hmmscan-parser.sh”
+
+mkdir part2
+cd part2
 wget https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/dbCAN-fam-HMMs.txt
 wget https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/hmmscan-parser.sh
 
