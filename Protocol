@@ -87,7 +87,7 @@ sbatch hmmscan_run.slurm
 
 sh hmmscan-parser.sh gh31_hmmscan.out.dm > gh31_hmmscan.out.dm.ps 
 
-cat gh31_hmmscan.out.dm.ps  | awk '$5<1e-15&&$10>0.35' > gh31_hmmscan.out.dm.ps .stringent
+cat gh31_hmmscan.out.dm.ps  | awk '$5<1e-15&&$10>0.35' > gh31_hmmscan.out.dm.ps.stringent
 
 ________________________________________________________________________________
 ##Part 3: Domain extraction
