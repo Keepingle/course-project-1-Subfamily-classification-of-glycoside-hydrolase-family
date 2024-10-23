@@ -91,7 +91,7 @@ cat gh31_hmmscan.out.dm.ps  | awk '$5<1e-15&&$10>0.35' > gh31_hmmscan.out.dm.ps
 
 ________________________________________________________________________________
 ##Part 3: Domain extraction
-ml biopython
+ml 	biopython/py311/1.81
 cp ../Class_project/filter_modules_26sep2023.py .
 cp ../part1/batch_protein_sequences.fasta .
 cp ../part2/gh31_hmmscan.out.dm.ps.stringent .
