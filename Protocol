@@ -77,7 +77,7 @@ nano hmmscan_run.slurm
 #SBATCH --mail-type=ALL
 
 ml hmmer/3.3
-hmmscan --domtblout gh31_hmmscan.out.dm dbCAN-fam-HMMs.txt /work/yinlab/yixing/course_project/part1/batch_protein_sequences.fasta > gh31_hmmscan.out
+hmmscan --domtblout gh31_hmmscan.out.dm dbCAN-fam-HMMs.txt /work/yinlab/yixing/course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/part1/batch_protein_sequences.fasta > gh31_hmmscan.out
 
 ##Run hmmscan_run.slurm using sbatch (it takes around 4 hours)
 sbatch hmmscan_run.slurm
