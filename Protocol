@@ -2,7 +2,7 @@
 cd $WORK
 mkdir course_project
 cd course_project
-git clone https://github.com/sivanr92/Class_project.git 
+git clone https://github.com/Keepingle/course-project-1-Subfamily-classification-of-glycoside-hydrolase-family.git 
 
 # for each part, create a folder and named with “part1”,  “part2”, “part3”....
 mkdir part1
@@ -33,7 +33,7 @@ export NCBI_API_KEY=your_API_KEY
 #EX: export NCBI_API_KEY=81e5ba4b75d9218a02c7502bb754ba229208
 ## copy batch_download_protein_seqeunces.sh and run it (running time is about 30 min
 
-cp ../Class_project/batch_download_protein_seqeunces.sh .
+cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/batch_download_protein_seqeunces.sh .
 nano batch_download_protein_seqeunces.sh
 # Revise to change email address in batch_download_protein_seqeunces.sh
 
@@ -57,7 +57,7 @@ hmmbuild -h  #To check if it works or not.
 
 hmmpress dbCAN-fam-HMMs.txt
 
-cp ../Class_project/hmmscan_run.slurm .
+cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/hmmscan_run.slurm .
 nano hmmscan_run.slurm
 
 #Edit it using your own info.
@@ -77,7 +77,7 @@ nano hmmscan_run.slurm
 #SBATCH --mail-type=ALL
 
 ml hmmer/3.3
-hmmscan --domtblout gh31_hmmscan.out.dm dbCAN-fam-HMMs.txt /work/yinlab/yixing/course_project/part1/cleaned_batch_protein_sequences.fasta > gh31_hmmscan.out
+hmmscan --domtblout gh31_hmmscan.out.dm dbCAN-fam-HMMs.txt /work/yinlab/yixing/course_project/part1/batch_protein_sequences.fasta > gh31_hmmscan.out
 
 ##Run hmmscan_run.slurm using sbatch (it takes around 4 hours)
 sbatch hmmscan_run.slurm
@@ -95,7 +95,7 @@ ________________________________________________________________________________
 mkdir part3
 cd part3
 ml biopython/py311/1.81
-cp ../Class_project/filter_modules_26sep2023.py .
+cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/filter_modules_26sep2023.py .
 cp ../part1/batch_protein_sequences.fasta .
 cp ../part2/gh31_hmmscan.out.dm.ps.stringent .
 change the batch_protein_sequences.fasta
