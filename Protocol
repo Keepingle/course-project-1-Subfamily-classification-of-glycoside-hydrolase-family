@@ -18,7 +18,6 @@ wget http://www.cazy.org/IMG/cazy_data/GH31.txt
 less GH31.txt | grep -w ncbi | cut -f 4 > list_ids.txt 
 
 
-
 cat list_ids.txt | sort | uniq > uniq_list_ids.txt 
 wc -l uniq_list_ids.txt  # unique ids in GH31
 
@@ -31,7 +30,7 @@ export PATH=${HOME}/edirect:${PATH}
 
 export NCBI_API_KEY=your_API_KEY
 #EX: export NCBI_API_KEY=81e5ba4b75d9218a02c7502bb754ba229208
-## copy batch_download_protein_seqeunces.sh and run it (running time is about 30 min
+## copy batch_download_protein_seqeunces.sh and run it (running time is about 30 min)
 
 cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/batch_download_protein_seqeunces.sh .
 nano batch_download_protein_seqeunces.sh
@@ -60,7 +59,7 @@ hmmpress dbCAN-fam-HMMs.txt
 cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/hmmscan_run.slurm .
 nano hmmscan_run.slurm
 
-#Edit it using your own info.
+#Edit it using your info.
 #Try smaller mem if the waiting time is too long.
 #Set error and output with the same path (in your part2 folder).
 #Add email to remind you when it start/stop.
@@ -83,7 +82,7 @@ hmmscan --domtblout gh31_hmmscan.out.dm dbCAN-fam-HMMs.txt /work/yinlab/yixing/c
 sbatch hmmscan_run.slurm
 
 ##Run the following commands to make the result readable 
-##xtract the final modules by filtering with E- Value <1e-15 and coverage cut off >0.35.
+##Extract the final modules by filtering with E- Value <1e-15 and coverage cut off >0.35.
 
 sh hmmscan-parser.sh gh31_hmmscan.out.dm > gh31_hmmscan.out.dm.ps 
 
