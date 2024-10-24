@@ -2,7 +2,7 @@
 cd $WORK
 mkdir course_project
 cd course_project
-git clone https://github.com/Keepingle/course-project-1-Subfamily-classification-of-glycoside-hydrolase-family.git 
+git clone https://github.com/Keepingle/course-project-1-Subfamily-classification-of-glycoside-hydrolase-family.git
 
 # for each part, create a folder and named with “part1”,  “part2”, “part3”....
 mkdir part1
