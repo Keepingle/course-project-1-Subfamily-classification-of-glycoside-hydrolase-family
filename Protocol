@@ -94,17 +94,24 @@ ________________________________________________________________________________
 mkdir part3
 cd part3
 ml biopython/py311/1.81
-cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/filter_modules_26sep2023.py .
+cp ../course-project-1-Subfamily-classification-of-glycoside-hydrolase-family/filter_modules_24oct2024.py .
 cp ../part1/batch_protein_sequences.fasta .
 cp ../part2/gh31_hmmscan.out.dm.ps.stringent .
-change the batch_protein_sequences.fasta
-python filter_modules_26sep2023.py > extracted_domains.faa
+nano filter_modules_24oct2024.py
+##change the batch_protein_sequences.fasta and the family name in filter_modules_24oct2024.py
+python filter_modules_24oct2024.py > extracted_domains.faa
+
+ml seqkit
+seqkit sample -p 0.2 extracted_domains.faa  -o random_selected_extracted_domains_02.faa
 
 
+________________________________________________________________________________
+##Part 4: Sequence similarity networks (SSNpipe) 
+mkdir part4
+##Part 5: Cytoscape Visualization
+mkdir part5
+##check on the slides
 
-
-
-
-
+________________________________________________________________________________
 
 
